@@ -1,6 +1,9 @@
 import React, { Component } from "react"
 import logo from "./logo.svg"
 import "./App.css"
+import axios from 'axios';
+import Quiz from "./components/quiz/Quiz";
+import QuizGame from './components/quizGame/QuizGame';
 
 class LambdaDemo extends Component {
   constructor(props) {
@@ -19,6 +22,7 @@ class LambdaDemo extends Component {
 
   render() {
     const { loading, msg } = this.state
+    
 
     return (
       <p>
@@ -30,21 +34,26 @@ class LambdaDemo extends Component {
     )
   }
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class App extends Component {
-  render() {
+  // Constructor 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+        items: [],
+        DataisLoaded: false
+        
+    };
+}
+
+render() {
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            test test test
-          </p>
-          <LambdaDemo />
-        </header>
-      </div>
-    )
-  }
+       <QuizGame/>
+);
+}
 }
 
 export default App
